@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix calculator</title>
+    <style>
+        .matrix {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 0.2rem;
+            width: 8.6rem;
+        }
+        .matrix > input {
+            width: 2rem;
+        }
+        #error {
+            padding: 0.75rem 1.25rem;
+            border: 0.1rem solid red;
+        }
+        #error > p, #error > h2 {
+            color: red;
+        }
+        .container {
+            display: inline-block;
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="error" th:if="${error}">
+        <h2>An error occurred!</h2>
+        <p th:utext="${error}"></p>
+    </div>
+
+    <th:block th:unless="${error}">
+        <form action="#" th:action="@{/process}" method="post" th:object="${operation}">
+            <div class="container">
+                <select id="type-select" th:field="*{type}" onchange="optionChange();">
+                    <option th:each="type0 : ${T(com.example.kushkursach.domain.Type).values()}" th:value="${type0}" th:text="${type0}" th:data-one-table="${type0.ordinal() == 0 || type0.ordinal() == 1}" />
+                </select>
+            </div>
+            <div class="container">
+                <select th:field="*{matrix1.rows}">
+                    <option th:value="1">1</option>
+                    <option th:value="2">2</option>
+                    <option th:value="3">3</option>
+                    <option th:value="4">4</option>
+                </select>
+                <span>X</span>
+                <select th:field="*{matrix1.cols}">
+                    <option th:value="1">1</option>
+                    <option th:value="2">2</option>
+                    <option th:value="3">3</option>
+                    <option th:value="4">4</option>
+                </select>
+                <div id="matrix1" class="matrix">
+                    <input type="text" th:field="*{matrix1.cell1}">
+                    <input type="text" th:field="*{matrix1.cell2}">
+                    <input type="text" th:field="*{matrix1.cell3}">
+                    <input type="text" th:field="*{matrix1.cell4}">
+                    <input type="text" th:field="*{matrix1.cell5}">
+                    <input type="text" th:field="*{matrix1.cell6}">
+                    <input type="text" th:field="*{matrix1.cell7}">
+                    <input type="text" th:field="*{matrix1.cell8}">
+                    <input type="text" th:field="*{matrix1.cell9}">
+                    <input type="text" th:field="*{matrix1.cell10}">
+                    <input type="text" th:field="*{matrix1.cell11}">
+                    <input type="text" th:field="*{matrix1.cell12}">
+                    <input type="text" th:field="*{matrix1.cell13}">
+                    <input type="text" th:field="*{matrix1.cell14}">
+                    <input type="text" th:field="*{matrix1.cell15}">
+                    <input type="text" th:field="*{matrix1.cell16}">
+                </div>
+            </div>
+            <div id="matrix2-wrapper" style="display: none" class="container">
+                <select th:field="*{matrix2.rows}">
+                    <option th:value="1">1</option>
+                    <option th:value="2">2</option>
+                    <option th:value="3">3</option>
+                    <option th:value="4">4</option>
+                </select>
+                <span>X</span>
+                <select th:field="*{matrix2.cols}">
+                    <option th:value="1">1</option>
+                    <option th:value="2">2</option>
+                    <option th:value="3">3</option>
+                    <option th:value="4">4</option>
+                </select>
+                <div id="matrix2" class="matrix">
+                    <input type="text" th:field="*{matrix2.cell1}">
+                    <input type="text" th:field="*{matrix2.cell2}">
+                    <input type="text" th:field="*{matrix2.cell3}">
+                    <input type="text" th:field="*{matrix2.cell4}">
+                    <input type="text" th:field="*{matrix2.cell5}">
+                    <input type="text" th:field="*{matrix2.cell6}">
+                    <input type="text" th:field="*{matrix2.cell7}">
+                    <input type="text" th:field="*{matrix2.cell8}">
+                    <input type="text" th:field="*{matrix2.cell9}">
+                    <input type="text" th:field="*{matrix2.cell10}">
+                    <input type="text" th:field="*{matrix2.cell11}">
+                    <input type="text" th:field="*{matrix2.cell12}">
+                    <input type="text" th:field="*{matrix2.cell13}">
+                    <input type="text" th:field="*{matrix2.cell14}">
+                    <input type="text" th:field="*{matrix2.cell15}">
+                    <input type="text" th:field="*{matrix2.cell16}">
+                </div>
+            </div>
+            <div class="container">
+                <button type="submit">Process</button>
+                <th:block th:if="${operation.result.computed}">
+                    <button onclick="loadResult()">Load result</button>
+                </th:block>
+            </div>
+        </form>
+        <th:block th:if="${operation.result.computed}">
+            <p>Result:</p>
+            <div id="result" class="matrix" th:object="${operation.result}">
+                <input type="text" th:field="*{cell1}" disabled>
+                <input type="text" th:field="*{cell2}" disabled>
+                <input type="text" th:field="*{cell3}" disabled>
+                <input type="text" th:field="*{cell4}" disabled>
+                <input type="text" th:field="*{cell5}" disabled>
+                <input type="text" th:field="*{cell6}" disabled>
+                <input type="text" th:field="*{cell7}" disabled>
+                <input type="text" th:field="*{cell8}" disabled>
+                <input type="text" th:field="*{cell9}" disabled>
+                <input type="text" th:field="*{cell10}" disabled>
+                <input type="text" th:field="*{cell11}" disabled>
+                <input type="text" th:field="*{cell12}" disabled>
+                <input type="text" th:field="*{cell13}" disabled>
+                <input type="text" th:field="*{cell14}" disabled>
+                <input type="text" th:field="*{cell15}" disabled>
+                <input type="text" th:field="*{cell16}" disabled>
+            </div>
+            <th:block th:if="${operation.result.determinant}">
+                <span>Determinant:</span>
+                <input type="text" th:field="${operation.result.determinant}" disabled>
+            </th:block>
+        </th:block>
+    </th:block>
+
+    <script defer>
+        optionChange();
+        function optionChange() {
+            const selectElement = document.body.querySelector('#type-select');
+            const selectedValue = selectElement.options[selectElement.selectedIndex];
+            const targetElement = document.body.querySelector('#matrix2-wrapper');
+            targetElement.style.display = selectedValue.getAttribute('data-one-table') === 'true' ? 'none' : 'inline-block';
+        }
+    </script>
+    <script>
+        function loadResult() {
+            const cells = document.body.querySelectorAll('#matrix1 > input');
+            const resultCells = document.body.querySelectorAll('#result > input')
+            for (let i = 0; i < 16; i++) {
+                cells[i].setAttribute('value', resultCells[i].getAttribute('value'));
+            }
+        }
+    </script>
+</body>
+</html>
