@@ -41,97 +41,97 @@
                 </select>
             </div>
             <div class="container">
-                <select th:field="*{matrix1.rows}">
+                <select id="rows-select1" th:field="*{matrix1.rows}" onchange="optionChangeRowsAndCols(1);">
                     <option th:value="1">1</option>
                     <option th:value="2">2</option>
                     <option th:value="3">3</option>
                     <option th:value="4">4</option>
                 </select>
                 <span>X</span>
-                <select th:field="*{matrix1.cols}">
+                <select id="cols-select1" th:field="*{matrix1.cols}" onchange="optionChangeRowsAndCols(1);">
                     <option th:value="1">1</option>
                     <option th:value="2">2</option>
                     <option th:value="3">3</option>
                     <option th:value="4">4</option>
                 </select>
                 <div id="matrix1" class="matrix">
-                    <input type="text" th:field="*{matrix1.cell1}">
-                    <input type="text" th:field="*{matrix1.cell2}">
-                    <input type="text" th:field="*{matrix1.cell3}">
-                    <input type="text" th:field="*{matrix1.cell4}">
-                    <input type="text" th:field="*{matrix1.cell5}">
-                    <input type="text" th:field="*{matrix1.cell6}">
-                    <input type="text" th:field="*{matrix1.cell7}">
-                    <input type="text" th:field="*{matrix1.cell8}">
-                    <input type="text" th:field="*{matrix1.cell9}">
-                    <input type="text" th:field="*{matrix1.cell10}">
-                    <input type="text" th:field="*{matrix1.cell11}">
-                    <input type="text" th:field="*{matrix1.cell12}">
-                    <input type="text" th:field="*{matrix1.cell13}">
-                    <input type="text" th:field="*{matrix1.cell14}">
-                    <input type="text" th:field="*{matrix1.cell15}">
-                    <input type="text" th:field="*{matrix1.cell16}">
+                    <input id="matrix1-1" type="text" th:field="*{matrix1.cell1.data}" col="1" row="1">
+                    <input id="matrix1-2" type="text" th:field="*{matrix1.cell2.data}" col="2" row="1">
+                    <input id="matrix1-3" type="text" th:field="*{matrix1.cell3.data}" col="3" row="1">
+                    <input id="matrix1-4" type="text" th:field="*{matrix1.cell4.data}" col="4" row="1">
+                    <input id="matrix1-5" type="text" th:field="*{matrix1.cell5.data}" col="1" row="2">
+                    <input id="matrix1-6" type="text" th:field="*{matrix1.cell6.data}" col="2" row="2">
+                    <input id="matrix1-7" type="text" th:field="*{matrix1.cell7.data}" col="3" row="2">
+                    <input id="matrix1-8" type="text" th:field="*{matrix1.cell8.data}" col="4" row="2">
+                    <input id="matrix1-9" type="text" th:field="*{matrix1.cell9.data}" col="1" row="3">
+                    <input id="matrix1-10" type="text" th:field="*{matrix1.cell10.data}" col="2" row="3">
+                    <input id="matrix1-11" type="text" th:field="*{matrix1.cell11.data}" col="3" row="3">
+                    <input id="matrix1-12" type="text" th:field="*{matrix1.cell12.data}" col="4" row="3">
+                    <input id="matrix1-13" type="text" th:field="*{matrix1.cell13.data}" col="1" row="4">
+                    <input id="matrix1-14" type="text" th:field="*{matrix1.cell14.data}" col="2" row="4">
+                    <input id="matrix1-15" type="text" th:field="*{matrix1.cell15.data}" col="3" row="4">
+                    <input id="matrix1-16" type="text" th:field="*{matrix1.cell16.data}" col="4" row="4">
                 </div>
             </div>
             <div id="matrix2-wrapper" style="display: none" class="container">
-                <select th:field="*{matrix2.rows}">
+                <select id="rows-select2" th:field="*{matrix2.rows}" onchange="optionChangeRowsAndCols(2);">
                     <option th:value="1">1</option>
                     <option th:value="2">2</option>
                     <option th:value="3">3</option>
                     <option th:value="4">4</option>
                 </select>
                 <span>X</span>
-                <select th:field="*{matrix2.cols}">
+                <select id="cols-select2" th:field="*{matrix2.cols}" onchange="optionChangeRowsAndCols(2);">
                     <option th:value="1">1</option>
                     <option th:value="2">2</option>
                     <option th:value="3">3</option>
                     <option th:value="4">4</option>
                 </select>
                 <div id="matrix2" class="matrix">
-                    <input type="text" th:field="*{matrix2.cell1}">
-                    <input type="text" th:field="*{matrix2.cell2}">
-                    <input type="text" th:field="*{matrix2.cell3}">
-                    <input type="text" th:field="*{matrix2.cell4}">
-                    <input type="text" th:field="*{matrix2.cell5}">
-                    <input type="text" th:field="*{matrix2.cell6}">
-                    <input type="text" th:field="*{matrix2.cell7}">
-                    <input type="text" th:field="*{matrix2.cell8}">
-                    <input type="text" th:field="*{matrix2.cell9}">
-                    <input type="text" th:field="*{matrix2.cell10}">
-                    <input type="text" th:field="*{matrix2.cell11}">
-                    <input type="text" th:field="*{matrix2.cell12}">
-                    <input type="text" th:field="*{matrix2.cell13}">
-                    <input type="text" th:field="*{matrix2.cell14}">
-                    <input type="text" th:field="*{matrix2.cell15}">
-                    <input type="text" th:field="*{matrix2.cell16}">
+                    <input id="matrix2-1" type="text" th:field="*{matrix2.cell1.data}" col="1" row="1">
+                    <input id="matrix2-2" type="text" th:field="*{matrix2.cell2.data}" col="2" row="1">
+                    <input id="matrix2-3" type="text" th:field="*{matrix2.cell3.data}" col="3" row="1">
+                    <input id="matrix2-4" type="text" th:field="*{matrix2.cell4.data}" col="4" row="1">
+                    <input id="matrix2-5" type="text" th:field="*{matrix2.cell5.data}" col="1" row="2">
+                    <input id="matrix2-6" type="text" th:field="*{matrix2.cell6.data}" col="2" row="2">
+                    <input id="matrix2-7" type="text" th:field="*{matrix2.cell7.data}" col="3" row="2">
+                    <input id="matrix2-8" type="text" th:field="*{matrix2.cell8.data}" col="4" row="2">
+                    <input id="matrix2-9" type="text" th:field="*{matrix2.cell9.data}" col="1" row="3">
+                    <input id="matrix2-10" type="text" th:field="*{matrix2.cell10.data}" col="2" row="3">
+                    <input id="matrix2-11" type="text" th:field="*{matrix2.cell11.data}" col="3" row="3">
+                    <input id="matrix2-12" type="text" th:field="*{matrix2.cell12.data}" col="4" row="3">
+                    <input id="matrix2-13" type="text" th:field="*{matrix2.cell13.data}" col="1" row="4">
+                    <input id="matrix2-14" type="text" th:field="*{matrix2.cell14.data}" col="2" row="4">
+                    <input id="matrix2-15" type="text" th:field="*{matrix2.cell15.data}" col="3" row="4">
+                    <input id="matrix2-16" type="text" th:field="*{matrix2.cell16.data}" col="4" row="4">
                 </div>
             </div>
             <div class="container">
                 <button type="submit">Process</button>
                 <th:block th:if="${operation.result.computed}">
-                    <button onclick="loadResult()">Load result</button>
+                    <button onclick="loadResult(event)">Load result</button>
                 </th:block>
             </div>
         </form>
         <th:block th:if="${operation.result.computed}">
             <p>Result:</p>
             <div id="result" class="matrix" th:object="${operation.result}">
-                <input type="text" th:field="*{cell1}" disabled>
-                <input type="text" th:field="*{cell2}" disabled>
-                <input type="text" th:field="*{cell3}" disabled>
-                <input type="text" th:field="*{cell4}" disabled>
-                <input type="text" th:field="*{cell5}" disabled>
-                <input type="text" th:field="*{cell6}" disabled>
-                <input type="text" th:field="*{cell7}" disabled>
-                <input type="text" th:field="*{cell8}" disabled>
-                <input type="text" th:field="*{cell9}" disabled>
-                <input type="text" th:field="*{cell10}" disabled>
-                <input type="text" th:field="*{cell11}" disabled>
-                <input type="text" th:field="*{cell12}" disabled>
-                <input type="text" th:field="*{cell13}" disabled>
-                <input type="text" th:field="*{cell14}" disabled>
-                <input type="text" th:field="*{cell15}" disabled>
-                <input type="text" th:field="*{cell16}" disabled>
+                <input type="text" th:field="*{cell1.data}" disabled th:style="${operation.result.computed && !operation.result.cell1.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell2.data}" disabled th:style="${operation.result.computed && !operation.result.cell2.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell3.data}" disabled th:style="${operation.result.computed && !operation.result.cell3.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell4.data}" disabled th:style="${operation.result.computed && !operation.result.cell4.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell5.data}" disabled th:style="${operation.result.computed && !operation.result.cell5.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell6.data}" disabled th:style="${operation.result.computed && !operation.result.cell6.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell7.data}" disabled th:style="${operation.result.computed && !operation.result.cell7.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell8.data}" disabled th:style="${operation.result.computed && !operation.result.cell8.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell9.data}" disabled th:style="${operation.result.computed && !operation.result.cell9.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell10.data}" disabled th:style="${operation.result.computed && !operation.result.cell10.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell11.data}" disabled th:style="${operation.result.computed && !operation.result.cell11.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell12.data}" disabled th:style="${operation.result.computed && !operation.result.cell12.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell13.data}" disabled th:style="${operation.result.computed && !operation.result.cell13.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell14.data}" disabled th:style="${operation.result.computed && !operation.result.cell14.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell15.data}" disabled th:style="${operation.result.computed && !operation.result.cell15.hasData? 'visibility:hidden' : 'visibility:visible'}">
+                <input type="text" th:field="*{cell16.data}" disabled th:style="${operation.result.computed && !operation.result.cell16.hasData? 'visibility:hidden' : 'visibility:visible'}">
             </div>
             <th:block th:if="${operation.result.determinant}">
                 <span>Determinant:</span>
@@ -140,21 +140,45 @@
         </th:block>
     </th:block>
 
-    <script defer>
+    <script>
         optionChange();
+        optionChangeRowsAndCols(1);
+        optionChangeRowsAndCols(2);
+
         function optionChange() {
             const selectElement = document.body.querySelector('#type-select');
             const selectedValue = selectElement.options[selectElement.selectedIndex];
             const targetElement = document.body.querySelector('#matrix2-wrapper');
             targetElement.style.display = selectedValue.getAttribute('data-one-table') === 'true' ? 'none' : 'inline-block';
         }
-    </script>
-    <script>
-        function loadResult() {
+
+        function loadResult(event) {
+            event.preventDefault();
             const cells = document.body.querySelectorAll('#matrix1 > input');
             const resultCells = document.body.querySelectorAll('#result > input')
             for (let i = 0; i < 16; i++) {
                 cells[i].setAttribute('value', resultCells[i].getAttribute('value'));
+                cells[i].style.visibility = resultCells[i].style.visibility;
+            }
+            optionChangeRowsAndCols(1);
+        }
+
+        function optionChangeRowsAndCols(matrixNumber) {
+            let c = 1;
+            for (let i = 1; i <= 16; i++) {
+                document.body.querySelector(`#matrix${matrixNumber}-${i}`).style.visibility = 'hidden';
+                c = 2;
+            }
+            let selectElement = document.body.querySelector(`#rows-select${matrixNumber}`);
+            const rows = selectElement.options[selectElement.selectedIndex].value;
+            selectElement = document.body.querySelector(`#cols-select${matrixNumber}`);
+            const cols = selectElement.options[selectElement.selectedIndex].value;
+
+            for (let i = 1; i <= 16; i++) {
+                const cell = document.body.querySelector(`#matrix${matrixNumber}-${i}`);
+                if (cell.getAttribute('col') <= cols && cell.getAttribute('row') <= rows) {
+                    cell.style.visibility = 'visible';
+                }
             }
         }
     </script>

@@ -8,22 +8,22 @@ import org.apache.commons.math3.linear.RealMatrix;
 @Data
 @NoArgsConstructor
 public class Matrix {
-    private double cell1;
-    private double cell2;
-    private double cell3;
-    private double cell4;
-    private double cell5;
-    private double cell6;
-    private double cell7;
-    private double cell8;
-    private double cell9;
-    private double cell10;
-    private double cell11;
-    private double cell12;
-    private double cell13;
-    private double cell14;
-    private double cell15;
-    private double cell16;
+    private Cell cell1;
+    private Cell cell2;
+    private Cell cell3;
+    private Cell cell4;
+    private Cell cell5;
+    private Cell cell6;
+    private Cell cell7;
+    private Cell cell8;
+    private Cell cell9;
+    private Cell cell10;
+    private Cell cell11;
+    private Cell cell12;
+    private Cell cell13;
+    private Cell cell14;
+    private Cell cell15;
+    private Cell cell16;
     private boolean computed = false;
     private Double determinant;
     private int cols;
@@ -56,20 +56,20 @@ public class Matrix {
         this.cols = realMatrix.getColumnDimension();
     }
 
-    private double getCell(RealMatrix matrix, int row, int col) {
+    private Cell getCell(RealMatrix matrix, int row, int col) {
         try {
-            return matrix.getEntry(row, col);
+            return new Cell(matrix.getEntry(row, col), true);
         } catch (RuntimeException e) {
-            return 0;
+            return new Cell();
         }
     }
 
     public RealMatrix toRealMatrix() {
         double[][] matrix = {
-                {this.cell1, this.cell2, this.cell3, this.cell4},
-                {this.cell5, this.cell6, this.cell7, this.cell8},
-                {this.cell9, this.cell10, this.cell11, this.cell12},
-                {this.cell13, this.cell14, this.cell15, this.cell16}
+                {this.cell1.getData(), this.cell2.getData(), this.cell3.getData(), this.cell4.getData()},
+                {this.cell5.getData(), this.cell6.getData(), this.cell7.getData(), this.cell8.getData()},
+                {this.cell9.getData(), this.cell10.getData(), this.cell11.getData(), this.cell12.getData()},
+                {this.cell13.getData(), this.cell14.getData(), this.cell15.getData(), this.cell16.getData()}
         };
         double[][] matrixAdjusted = new double[this.rows][this.cols];
         for (int i = 0; i < this.rows; i++) {
